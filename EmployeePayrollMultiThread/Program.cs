@@ -22,7 +22,8 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\nSelect option \n1.Add mutliple employee without thread \n2.Exit");
+                Console.WriteLine("\nSelect option \n1.Add mutliple employee without thread \n2.Add multiple employee with thread " +
+                    "\n3.Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -31,6 +32,12 @@
                         employeePayRoll.AddEmployeeToPayroll(employeeDetails);
                         DateTime stopdateTime = DateTime.Now;
                         Console.WriteLine("Duation without thread" + (stopdateTime - startdateTime));
+                        break;
+                    case 2:
+                        DateTime startdateTimeThread = DateTime.Now;
+                        employeePayRoll.AddEmployeeToPayrollWithThread(employeeDetails);
+                        DateTime stopdateTimeThread = DateTime.Now;
+                        Console.WriteLine("Duation with thread" + (stopdateTimeThread - startdateTimeThread));
                         break;
                     default:
                         flag = false;

@@ -28,6 +28,14 @@ namespace EmployeePayrollMultiThreadTest
             employeePayRollOperation.AddEmployeeToPayroll(employeeDetails);
             DateTime stopdateTime = DateTime.Now;
             Console.WriteLine("Duation without thread" + (stopdateTime - startdateTime));
+
+            //UC2-Ability to add multiple employee to payroll DB using with thread
+            EmployeePayRollOperations employeePayRollOperationThread = new EmployeePayRollOperations();
+            employeePayRollOperationThread.AddEmployeeToPayrollWithThread(employeeDetails);
+            DateTime startdateTimeThread = DateTime.Now;
+            employeePayRollOperation.AddEmployeeToPayroll(employeeDetails);
+            DateTime stopdateTimeThread = DateTime.Now;
+            Console.WriteLine("Duation with thread   " + (stopdateTimeThread - startdateTimeThread));
         }
     }
 }
